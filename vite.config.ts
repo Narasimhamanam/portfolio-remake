@@ -4,6 +4,10 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: 3000,
+    host: true,
+  },
   build: {
     rollupOptions: {
       output: {
@@ -25,6 +29,15 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['three', 'gsap', 'lenis']
+    include: [
+      'three',
+      'three-stdlib',
+      'gsap',
+      'gsap/ScrollTrigger',
+      'lenis',
+      'lucide-react',
+      'chess.js',
+      'react-icons/fa6'
+    ]
   }
 });

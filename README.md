@@ -1,108 +1,113 @@
-# 🌐 Narasimha Manam — 3D Interactive Engineering Portfolio
+# Narasimha Manam — 3D Interactive Engineering Portfolio
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
-[![Three.js](https://img.shields.io/badge/3D-Three.js_%7C_R3F-000000?style=flat&logo=three.js&logoColor=white)](https://threejs.org/)
+[![React](https://img.shields.io/badge/React-18-5B7C99?style=flat&logo=react&logoColor=white)](https://react.dev/)
+[![Three.js](https://img.shields.io/badge/3D-Three.js_%7C_WebGL-14171C?style=flat&logo=three.js&logoColor=white)](https://threejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![GSAP](https://img.shields.io/badge/Animations-GSAP_3-88CE02?style=flat&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+[![Vite](https://img.shields.io/badge/Vite-5.4-8FA89B?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com)
 
-The personal, 3D interactive engineering portfolio of **Narasimha Manam**. Built using **React Three Fiber (R3F)**, **Three.js**, **GSAP**, **TypeScript**, and **Vite**, this application combines physics simulations, custom WebGL shaders, smooth Lenis scrolling, and an interactive 3D chess game engine integrated with **Stockfish AI**.
+The interactive engineering portfolio of **Narasimha Manam** (Full Stack Developer & Generative AI Engineer). Designed with a restrained, glass-polished architectural aesthetic, dual-theme token system (`Light` warm off-white `#F4F2EE` and `Dark` deep ink `#0E1116`), runtime-split `DesktopExperience` and `MobileExperience` bundles, scroll-choreographed 3D WebGL studio scenes, and an embedded client-side **Stockfish / RedoxChess WebAssembly Arena**.
 
 ---
 
-## 🎨 Interactive Features & Architecture
+## Architecture & Runtime Experience Split
 
 ```mermaid
 graph TD
-    User["Site Visitor"]
-    Canvas["WebGL 3D Canvas<br/>(@react-three/fiber + Drei)"]
-    Physics["Physics Simulation Engine<br/>(@react-three/rapier)"]
-    Post["Post-Processing Shaders<br/>(Bloom, DepthOfField, Vignette)"]
-    Chess["Interactive Chess Engine<br/>(Stockfish.js AI + chess.js)"]
-    Scroll["Smooth Scroll Controller<br/>(Lenis + GSAP ScrollTrigger)"]
+    Visitor["Visitor Viewport & Input"]
+    MatchMedia["matchMedia: (pointer: fine) and (min-width: 1024px)"]
+    Desktop["DesktopExperience (Lazy Bundle)"]
+    Mobile["MobileExperience (Lazy Bundle)"]
+    Desktop3D["DesktopStudioScene (9-Part PBR Kinetic Core + Draco 3D Avatar + ScrollTrigger Camera)"]
+    Mobile3D["MobileLightScene (Low-Poly Assembly, DPR <= 1.5, Opt-In Gyroscope)"]
+    Archive["/myworks — Filterable Engineering Archive"]
+    Chess["/play — RedoxChess / Stockfish WASM Arena"]
 
-    User --> Canvas
-    Canvas --> Physics
-    Canvas --> Post
-    User -->|Play AI Chess| Chess
-    User -->|Scroll Narrative| Scroll
+    Visitor --> MatchMedia
+    MatchMedia -->|Fine Pointer & >=1024px| Desktop
+    MatchMedia -->|Touch / Tablet / <1024px| Mobile
+    Desktop --> Desktop3D
+    Mobile --> Mobile3D
+    Visitor --> Archive
+    Visitor --> Chess
 ```
 
-### Highlights:
-- **WebGL 3D Canvas:** Interactive 3D scene rendering via React Three Fiber and Drei utilities.
-- **Physics Engine:** Real-time rigid-body collisions powered by Rapier (`@react-three/rapier`).
-- **Stockfish AI Chess Mini-Game:** Embedded playable chess match against the open-source Stockfish engine running client-side in WebAssembly (`stockfish.js` + `chess.js`).
-- **Smooth Inertial Scrolling:** Lenis smooth scrolling coupled with GSAP timeline scroll-trigger animations.
-- **Responsive Post-Processing:** Tone mapping, subtle bloom, and depth-of-field optimized for 60fps performance on mobile and desktop GPUs.
+### Key Architectural Highlights
+- **Design Token System (`src/styles/tokens.css`):** Shared CSS custom properties governing color (`--bg-canvas`, `--text-primary`, `--accent-primary` steel-blue, `--accent-sage`), fluid `clamp()` typography (`Plus Jakarta Sans`, `Fraunces`, `JetBrains Mono`), 8px spatial rhythm, and restrained glassmorphism (`backdrop-filter: blur(20px) saturate(140%)`).
+- **Dual-Theme Persistence (`src/hooks/useTheme.tsx`):** Respects `prefers-color-scheme`, persists user selection to `localStorage`, and hydrates synchronously in `index.html` to eliminate flash of unstyled content.
+- **Separate Desktop & Mobile Experiences:**
+  - `DesktopExperience`: Split-screen hero with a 9-part procedural PBR kinetic sculpture and optional encrypted 3D avatar toggle, collapsible bottom scene control dock, mouse-parallax camera, scroll-linked transforms, horizontal project showcase, and magnetic cursor.
+  - `MobileExperience`: Thumb-centric single-column layout with `>= 44px` touch targets, swipeable horizontal snap project cards, lightweight 3D scene (`DPR <= 1.5`), and a compact bottom glass navigation bar.
+- **Featured Engineering Projects:**
+  1. **ADAM-1 Enhanced** — AI Research & Microbiome Analysis Platform (`React, FastAPI, PostgreSQL, pgvector, LLM Integration`)
+  2. **Simha AI** — Multi-Agent LLM & RAG Platform (`LLaMA 3.3, FastAPI, React, MongoDB, RAG`)
+  3. **ResumePilot** — AI Resume Optimization & ATS Evaluation Platform (`React, TypeScript, Generative AI`)
+  4. **Smart Loan / AI Loan Risk** — Machine Learning Loan Approval System (`Python, Scikit-learn, Pandas, Streamlit`)
+  - Plus secondary repository projects: **NeuroXAI**, **CineSnap**, and **Interactive 3D Portfolio**.
 
 ---
 
-## 🛠️ Technology Stack
+## Project Structure
 
-- **Core Framework:** React 18, Vite 5, TypeScript 5
-- **3D & Graphics:** Three.js (`three`), `@react-three/fiber`, `@react-three/drei`, `@react-three/postprocessing`
-- **Physics:** `@react-three/rapier`, `@react-three/cannon`
-- **Animations:** GSAP (GreenSock), Lenis smooth scroll
-- **Game Engine:** `stockfish.js`, `chess.js`
-- **Icons & UI:** Lucide React, React Icons, React Fast Marquee
-- **Deployment:** Vercel (`vercel.json`)
-
----
-
-## 📂 Project Structure
-
-```
-portfolio/
-├── public/                   # Static 3D models, textures, and assets
-├── scripts/                  # Optimization & build scripts
+```text
+/
+├── public/
+│   ├── draco/                        # Draco WASM/JS decoders
+│   ├── models/                       # Encrypted 3D avatar & HDR environment
+│   ├── projects/                     # High-resolution project previews
+│   ├── portrait.jpeg                 # Developer portrait
+│   ├── redoxchess.js                 # Web Worker chess engine wrapper
+│   └── redoxchess.wasm               # WebAssembly chess engine binary
 ├── src/
-│   ├── components/           # 3D canvas, hero sections, project showcases
-│   ├── hooks/                # Viewport and GPU capability hooks
-│   ├── pages/                # Page routes (Home, Projects, Chess)
+│   ├── components/
+│   │   ├── sections/
+│   │   │   └── ContactFooterSection.tsx
+│   │   ├── three/
+│   │   │   ├── DesktopStudioScene.tsx
+│   │   │   └── MobileLightScene.tsx
+│   │   └── ui/
+│   │       ├── GlassNavigation.tsx
+│   │       ├── MagneticCursor.tsx
+│   │       ├── ProjectCaseModal.tsx
+│   │       └── SmartImage.tsx
+│   ├── experiences/
+│   │   ├── DesktopExperience.tsx
+│   │   └── MobileExperience.tsx
+│   ├── hooks/
+│   │   ├── useExperienceMode.ts
+│   │   └── useTheme.tsx
+│   ├── pages/
+│   │   ├── MyWorks.tsx
+│   │   └── Play.tsx
+│   ├── styles/
+│   │   └── tokens.css
+│   ├── utils/
+│   │   ├── portfolioLogic.ts
+│   │   ├── portfolioLogic.test.ts
+│   │   └── redoxchessEngine.ts
+│   ├── config.ts
 │   ├── App.tsx
+│   ├── index.css
 │   └── main.tsx
-│
-├── vercel.json               # Vercel SPA routing and caching headers
+├── vercel.json
 ├── package.json
-├── tsconfig.json
 └── vite.config.ts
 ```
 
 ---
 
-## 🚀 Quickstart & Local Setup
+## Local Development & Verification
 
-### Prerequisites
-- Node.js `18.x` or higher
-- `npm` or `pnpm`
-
-### 1. Clone the Repository
 ```bash
-git clone https://github.com/Narasimhamanam/portfolio.git
-cd portfolio
-```
-
-### 2. Install Dependencies
-```bash
+# 1. Install dependencies
 npm install
-```
 
-### 3. Launch Development Server
-```bash
+# 2. Run unit tests (Node built-in test runner via tsx)
+npx --yes tsx --test src/utils/portfolioLogic.test.ts
+
+# 3. Start development server
 npm run dev
-# Opens at http://localhost:5173
-```
 
-### 4. Build for Production
-```bash
+# 4. Type-check and build production bundle
 npm run build
-npm run preview
 ```
-
----
-
-## ⚠️ Performance Notes
-
-- The 3D canvas automatically scales device pixel ratio (`dpr={[1, 2]}`) to prevent overheating or GPU throttling on high-DPI retina screens.
-- WebGL contexts automatically handle tab hibernation and context restoration gracefully.

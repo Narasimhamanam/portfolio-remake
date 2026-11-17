@@ -1,22 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23050816'/><path d='M25 70V30L45 55V30H55V70L35 45V70H25Z' fill='%2322D3EE'/><path d='M58 70V30H68L78 50L88 30H98V70H88V45L78 65L68 45V70H58Z' fill='%232563FF'/></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Narasimha Manam | Full Stack Developer & Generative AI Engineer</title>
-    <meta name="description" content="Explore the portfolio of Narasimha Manam, featuring full-stack applications, generative AI systems, machine learning projects, and interactive 3D web experiences." />
-    <meta name="keywords" content="Narasimha Manam, Full Stack Developer, Generative AI Engineer, RAG, Three.js, React, FastAPI, Machine Learning, Portfolio" />
-    <meta name="theme-color" content="#050816" />
-    <meta property="og:title" content="Narasimha Manam | Full Stack Developer & Generative AI Engineer" />
-    <meta property="og:description" content="Explore the portfolio of Narasimha Manam, featuring full-stack applications, generative AI systems, machine learning projects, and interactive 3D web experiences." />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2314171C'/><path d='M24 72V28h11l19 28V28h10v44H53L34 44v28H24z' fill='%23F4F2EE'/><circle cx='76' cy='66' r='6' fill='%235B7C99'/></svg>"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Narasimha Manam — Full Stack & Generative AI Portfolio</title>
+    <meta
+      name="description"
+      content="Interactive 3D developer portfolio of Narasimha Manam featuring full-stack engineering, generative AI systems, RAG architectures, and an embedded Stockfish chess arena."
+    />
+    <meta
+      name="keywords"
+      content="Narasimha Manam, Full Stack Developer, Generative AI Engineer, RAG, Three.js, React, FastAPI, Machine Learning, Portfolio"
+    />
+    <meta name="theme-color" content="#F4F2EE" id="meta-theme-color" />
+    <meta property="og:title" content="Narasimha Manam — Full Stack & Generative AI Portfolio" />
+    <meta
+      property="og:description"
+      content="Interactive 3D developer portfolio of Narasimha Manam featuring full-stack engineering, generative AI systems, RAG architectures, and an embedded Stockfish chess arena."
+    />
     <meta property="og:type" content="website" />
-    <!-- Fonts: Inter primary typeface -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta property="og:url" content="https://narasimha-manam-portfolio.vercel.app" />
+    <!-- Refined Typography: Plus Jakarta Sans (variable sans), Fraunces (editorial serif accent), JetBrains Mono (tabular code/metrics) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("nm-portfolio-theme");
+          var prefersDark =
+            window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = saved === "dark" || saved === "light" ? saved : prefersDark ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+          var meta = document.getElementById("meta-theme-color");
+          if (meta) {
+            meta.setAttribute("content", theme === "dark" ? "#0E1116" : "#F4F2EE");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,0 +1,177 @@
+/* ==========================================================================
+   DESIGN TOKEN SYSTEM — Narasimha Manam Portfolio
+   Calm, glass-polished architectural aesthetic.
+   Light (warm off-white #F4F2EE, ink #14171C, muted steel-blue #5B7C99, sage #8FA89B)
+   Dark  (deep ink #0E1116, soft white #EAEEF4, desaturated blue #7899B8, sage #8FA89B)
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* 60% Dominant Neutral Canvas */
+  --bg-canvas: #F4F2EE;
+  --bg-canvas-subtle: #ECE9E2;
+  --bg-elevated: #FAF8F5;
+  --bg-surface-muted: #E6E2DA;
+
+  /* 30% Structural & Glass Surfaces */
+  --bg-glass: rgba(250, 248, 245, 0.74);
+  --bg-glass-strong: rgba(250, 248, 245, 0.88);
+  --bg-glass-subtle: rgba(244, 242, 238, 0.56);
+  --bg-canvas-overlay: rgba(244, 242, 238, 0.86);
+
+  /* Typography Ink Hierarchy (WCAG AA/AAA verified) */
+  --text-primary: #14171C;
+  --text-secondary: #3E4552;
+  --text-muted: #636B78;
+  --text-on-accent: #FAF8F5;
+
+  /* 10% Curated Accents: Muted Steel-Blue & Sage */
+  --accent-primary: #4A6B88;
+  --accent-primary-hover: #3B5974;
+  --accent-steel: #5B7C99;
+  --accent-sage: #6E8B7B;
+  --accent-sage-soft: rgba(143, 168, 155, 0.18);
+  --accent-steel-soft: rgba(91, 124, 153, 0.12);
+
+  /* Semantic Status (always paired with text/icon) */
+  --status-positive: #3B6E52;
+  --status-warning: #8C6229;
+  --status-danger: #A63A3A;
+
+  /* Hairline Borders & Glass Edges */
+  --border-hairline: rgba(20, 23, 28, 0.09);
+  --border-strong: rgba(20, 23, 28, 0.16);
+  --border-glass: rgba(255, 255, 255, 0.72);
+  --border-glass-outer: rgba(20, 23, 28, 0.08);
+  --focus-ring: #4A6B88;
+
+  /* Soft Layered Shadows (no neon glows) */
+  --shadow-sm: 0 2px 8px -2px rgba(20, 23, 28, 0.05), 0 1px 2px rgba(20, 23, 28, 0.04);
+  --shadow-md: 0 12px 32px -8px rgba(20, 23, 28, 0.07), 0 4px 12px -2px rgba(20, 23, 28, 0.04);
+  --shadow-lg: 0 24px 48px -12px rgba(20, 23, 28, 0.10), 0 8px 20px -4px rgba(20, 23, 28, 0.05);
+  --shadow-glass: 0 16px 40px -12px rgba(20, 23, 28, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.75);
+
+  /* 3D Scene Palette Tokens */
+  --scene-bg: #EFECE6;
+  --scene-fog: #EFECE6;
+  --scene-key-light: #FFF7EB;
+  --scene-fill-light: #D4E0EC;
+  --scene-steel: #5B7C99;
+  --scene-sage: #8FA89B;
+  --scene-stone: #E5E0D8;
+}
+
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
+
+  /* 60% Dominant Neutral Canvas */
+  --bg-canvas: #0E1116;
+  --bg-canvas-subtle: #12161D;
+  --bg-elevated: #161B24;
+  --bg-surface-muted: #1D2430;
+
+  /* 30% Structural & Glass Surfaces */
+  --bg-glass: rgba(22, 27, 36, 0.74);
+  --bg-glass-strong: rgba(22, 27, 36, 0.88);
+  --bg-glass-subtle: rgba(14, 17, 22, 0.62);
+  --bg-canvas-overlay: rgba(14, 17, 22, 0.88);
+
+  /* Typography Hierarchy with Dark Mode Optical Compensation */
+  --text-primary: #EAEEF4;
+  --text-secondary: #A9B4C2;
+  --text-muted: #7C8898;
+  --text-on-accent: #0E1116;
+
+  /* 10% Curated Accents: Desaturated Steel-Blue & Sage */
+  --accent-primary: #7FA0BE;
+  --accent-primary-hover: #96B4CF;
+  --accent-steel: #7899B8;
+  --accent-sage: #8FA89B;
+  --accent-sage-soft: rgba(143, 168, 155, 0.14);
+  --accent-steel-soft: rgba(120, 153, 184, 0.14);
+
+  /* Semantic Status */
+  --status-positive: #6BA383;
+  --status-warning: #C99A5B;
+  --status-danger: #D97373;
+
+  /* Hairline Borders & Glass Edges */
+  --border-hairline: rgba(234, 238, 244, 0.09);
+  --border-strong: rgba(234, 238, 244, 0.16);
+  --border-glass: rgba(234, 238, 244, 0.12);
+  --border-glass-outer: rgba(234, 238, 244, 0.10);
+  --focus-ring: #7FA0BE;
+
+  /* Soft Layered Shadows */
+  --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 14px 34px -8px rgba(0, 0, 0, 0.45), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 24px 52px -12px rgba(0, 0, 0, 0.58), 0 8px 20px -4px rgba(0, 0, 0, 0.35);
+  --shadow-glass: 0 18px 42px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+
+  /* 3D Scene Palette Tokens */
+  --scene-bg: #10141B;
+  --scene-fog: #10141B;
+  --scene-key-light: #FFEAD5;
+  --scene-fill-light: #35495E;
+  --scene-steel: #7899B8;
+  --scene-sage: #8FA89B;
+  --scene-stone: #232A35;
+}
+
+/* Shared Spatial, Typography, Radius, Blur & Motion Tokens */
+:root {
+  /* Font Families (2+1 Rule) */
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Fluid Type Scale via clamp() */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+  --text-sm: clamp(0.84rem, 0.8rem + 0.18vw, 0.9375rem);
+  --text-base: clamp(0.95rem, 0.91rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.28rem);
+  --text-xl: clamp(1.35rem, 1.2rem + 0.65vw, 1.65rem);
+  --text-2xl: clamp(1.75rem, 1.45rem + 1.2vw, 2.35rem);
+  --text-3xl: clamp(2.15rem, 1.75rem + 1.9vw, 3.25rem);
+  --text-display: clamp(2.45rem, 2rem + 2.5vw, 4.1rem);
+
+  /* 8px Spatial Rhythm Grid */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-8: 3rem;     /* 48px */
+  --space-10: 4rem;    /* 64px */
+  --space-12: 5rem;    /* 80px */
+  --space-16: 7rem;    /* 112px */
+
+  /* Radii (Nested math: r_inner = r_outer - padding) */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Glassmorphism Parameters */
+  --glass-blur: 20px;
+  --glass-blur-heavy: 26px;
+  --glass-saturate: 140%;
+
+  /* Motion Durations & Easings */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 160ms;
+  --duration-normal: 280ms;
+  --duration-slow: 520ms;
+
+  /* Layout Containers */
+  --container-max: 1280px;
+  --container-wide: 1440px;
+  --header-height: 68px;
+  --mobile-nav-height: 60px;
+}
